@@ -41,7 +41,8 @@
 	 
 
     
-		<h2>User List</h2>
+		<h2>{{__('User List')}}</h2>
+		
 	  
 	  <br>
       <div id="new">
@@ -61,9 +62,9 @@
 	<tr>
 		@foreach ($users as $key=>$user)
 		<th scope="row">{{$key+1}}</th>
-		<td>{{$user->name}}</td>
-		<td>{{$user->role->name}}</td>
-
+	 <td>{{$user->full_name}}</td>
+		<td>{{$user->role->name}}</td> 
+		
 
 	</tr>
 	@endforeach

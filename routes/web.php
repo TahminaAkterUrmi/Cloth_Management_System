@@ -4,6 +4,7 @@ use App\Http\Controllers\admin\CategoriesController;
 use Illuminate\Routing\Route as RoutingRoute;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\ClothController;
+use App\Http\Controllers\Admin\LanguageController;
 use App\Http\Controllers\Admin\LoginController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\SellerController;
@@ -28,7 +29,20 @@ use App\Http\Controllers\Admin\UserController;
 Route::get('/admin/login',[LoginController::class, 'login'])->name('admin.login');
 Route::post('/admin/doLogin',[LoginController::class,'do_login'])->name('admin.dologin');
 Route::get('/admin/logout',[LoginController::class,'logout'])->name('admin.logout');
+// Route::get('/admin/forget-password',[LoginController::class,'password_forget'])->name('admin.password.forget');
+// Route::post('/admin/forget-password/submit', [LoginController::class,'forgetPasswordEmailPost'])->name('admin.forget.password.post');
+// Route::get('/admin/rest-password/{token}',[LoginController::class, 'resetpassword'])->name('admin.reset.password');
+// Route::post('/admin/reset-password',[LoginController::class, 'resetPasswordPost'])->name('admin.rest.password.post');
 
+
+
+
+Route::get('auth/facebook',[LoginController::class,'facebookRedirect'])->name('login.facebook');
+Route::get('auth/facebook/callback',[LoginController::class,'loginWithfacebook']);
+
+
+Route::get('auth/github',[LoginController::class,'githubRedirect'])->name('login.github');
+Route::get('auth/github/callback',[LoginController::class, 'loginWithgithub']);
 
 // admin
  Route::group(['prefix'=>'admin','middleware'=> 'auth'], function(){
@@ -83,5 +97,8 @@ Route::post('/assign_permission/store',[RoleController::class, 'assignStore'])->
 Route::get('/users/list',[UserController::class,'user_list'])->name('users.index');
 Route::get('/users/create',[UserController::class,'user_create'])->name('users.create');
 Route::post('/users/store',[UserController::class,'user_store'])->name('users.store');
+
+//language
+Route::get('/language/{local}',[LanguageController::class, 'changeLanguage'])->name('language');
  
 });

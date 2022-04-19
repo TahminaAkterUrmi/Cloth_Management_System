@@ -1,3 +1,16 @@
+
+<style>
+  .col 
+  {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+  }
+ 
+</style>
+
+
+
 <header class="topbar" data-navbarbg="skin6">
   <nav class="navbar top-navbar navbar-expand-md navbar-dark">
     <div class="navbar-header" data-logobg="skin6">
@@ -62,7 +75,7 @@
         <!-- ============================================================== -->
 
         <li class="nav-item hidden-sm-down">
-          <form class="app-search ps-3">
+          {{-- <form class="app-search ps-3">
             <input
               type="text"
               class="form-control"
@@ -71,9 +84,26 @@
             <a class="srh-btn"
               ><i class="mdi mdi-magnify fs-4 lh-sm"></i
             ></a>
-          </form>
+          </form> --}}
         </li>
       </ul>
+     
+   <div class="col">
+   <label for="" style="color: white;">Select Language:</label>
+     <div class="col-md-4" style="padding-left: 10px;">
+      <select class="form-control" size="1" name="links" onchange="window.location.href=this.value;">
+          <option value="">Select language</option>
+          <option value="{{route('language','en')}}">EN</option>
+          <option value="{{route('language','bn')}}">BN</option>
+          <option value="{{route('language','ar')}}">AR</option>
+      </select>  
+     </div> 
+     </div>
+     
+     
+
+
+
 
       <!-- ============================================================== -->
       <!-- Right side toggle and nav items -->
@@ -82,7 +112,7 @@
         <!-- ============================================================== -->
         <!-- User profile and search -->
         <!-- ============================================================== -->
-        <li class="nav-item dropdown">
+        {{-- <li class="nav-item dropdown">
           <a
             class="nav-link dropdown-toggle waves-effect waves-dark"
             href="#"
@@ -103,6 +133,6 @@
           ></ul>
         </li>
       </ul>
-    </div>
+    </div> --}}
   </nav>
 </header>

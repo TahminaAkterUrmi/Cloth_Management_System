@@ -1,10 +1,9 @@
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css">
 <!------ Include the above in your HEAD tag ---------->
 <style>
-
-
 
  body {
   margin: 0;
@@ -67,6 +66,17 @@
                             <div id="register-link" class="text-right">
                                 <a href="#" class="text-info">Forget Password</a>
                             </div>
+                            
+                <div class="text-right" style="padding:10px; ">
+                  <a href="{{route('login.facebook')}}" class="btn btn-secondary">
+                      <i class="fa-brands fa-facebook"></i>
+                      Login With Facebook</a>
+                      <div class="text-right" style="padding:10px; ">
+                        <a href="{{route('login.github')}}" class="btn btn-warning">
+                          <i class="fa-brands fa-github"></i>
+                            Login With Github</a>
+              </div>
+              
                         </form>
                     </div>
                 </div>

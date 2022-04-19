@@ -7,6 +7,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use App\Support\Address;
+
+use Illuminate\Database\Eloquent\Casts\Attribute;
 
 class User extends Authenticatable
 {
@@ -46,4 +49,19 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    //accessors
+    // public function getFullNameAttribute()
+    // {
+    //    return $this->name .'-'.$this->role_id ;
+    // }
+    public function fullName(): Attribute
+    {
+        return Attribute::make(
+            get: fn ($value, $attributes) => $attributes['name']. $attributes['role_id'],
+            set: fn ($value) => [
+                'name' =>strtoupper($value),
+             
+            ]
+        );
+    }
 }

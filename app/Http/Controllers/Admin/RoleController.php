@@ -12,8 +12,9 @@ use Illuminate\Http\Request;
 class RoleController extends Controller
 {
     public function list_role(){
-        $roles= Role::all();
-
+        $roles= Role::with('permissions')->get();
+       
+    //  dd($roles);
         return view('admin.pages.roles.index', compact('roles'));
     }
     public function create_role(){
