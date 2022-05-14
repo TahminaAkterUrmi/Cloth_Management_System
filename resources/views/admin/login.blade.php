@@ -64,7 +64,7 @@
                                 <input type="submit"  class="btn btn-info btn-md" value="submit">
                             </div> 
                             <div id="register-link" class="text-right">
-                                <a href="#" class="text-info">Forget Password</a>
+                                <a href="{{route('admin.password.forget')}}" class="text-info">Forget Password</a>
                             </div>
                             
                 <div class="text-right" style="padding:10px; ">

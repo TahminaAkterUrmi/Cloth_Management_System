@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
+use Throwable;
+use Carbon\Carbon;
 use App\Models\User;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Laravel\Socialite\Facades\Socialite;
-use Throwable;
 
 class LoginController extends Controller
 {
@@ -109,8 +111,29 @@ try {
         }
 
     }
-    // public function password_forget(){
+//     public function password_forget(){
 
+//         return view('admin.pages.reset_password.forget_password');
+//      }
+//      public function forgetPasswordEmailPost(Request $request){
+//           $request->validate([
+//           'email'=>'required|exists:users'
+//           ]);
         
-    // }
-}
+//               $token = Str::random(50);
+//               $user = User::where('email', $request->email)->first();
+//               $user->update([
+//             'reset_token'=>$token,
+//             'reset_token_expire_at'=>Carbon::now()->addMinute(3),
+//               ]);
+//               $link = route('admin.reset.password',$token);
+
+//           }
+
+// public function resetpassword($token){
+
+     
+// }
+
+     }
+

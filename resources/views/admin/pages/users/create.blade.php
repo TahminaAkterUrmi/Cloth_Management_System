@@ -119,7 +119,7 @@ body {
   <div class="row">
     <div class="col-6"> 
       <label for="details">Password <span style="color:red">*</span>:</label>
-      <textarea id="text" name="password" placeholder="Password" style="height:50px"></textarea>
+      <textarea id="password" name="password" placeholder="Password" style="height:50px"></textarea>
     </div>
   </div>
   <div class="row">

@@ -42,7 +42,6 @@
 	  <table id="customers">
 		<tr>
 		  <th>ID</th>
-		  <th>Image</th>
 		  <th>Name</th>
 		  <th>Email</th>
 		  <th>Address</th>
@@ -50,17 +49,46 @@
 		  <th>Action</th>
 	  
 		</tr>
-	
-		  <td>abcd</td>
-		  <td>abcd</td>
-		  <td>abcd</td>
-		  <td>abcd</td>
-		  <td>abcd</td>
-		  <td>abcd</td>
-		  <td>abcd</td>
+	 @foreach ($sellers as $key=>$seller)
+	 <tr>
+		<th scope="row">{{$key+1}}</th>
+		  <td>{{$seller->name}}</td>
+		  <td>{{$seller->email}}</td>
+		  <td>{{$seller->address}}</td>
+		  <td>{{$seller->contact}}</td>
+		  <td><button type="submit" class="btn btn-danger">Delete</button></td>
+	 </tr>
+		@endforeach
 	
 	  </table>
 
 	  <br>
-	  <a href="{{route('seller.create')}}" class="btn btn-primary">Add New Seller</a>
+	  {{-- <a href="{{route('seller.create')}}" class="btn btn-primary">Add New Seller</a> --}}
 @endsection
+@push('more_script')
+<script type="text/javascript">
+
+$(function () {
+            var table = $('.myTable').DataTable({
+                processing: true,
+                serverSide: true,
+                ajax: "{{ route('sellers.alldata') }}",
+                columns: [
+                    {data: 'DT_RowIndex', name: 'DT_RowIndex'},
+                    {data: 'name', name: 'name'},
+                    {data: 'email', name: 'email'},
+                    {data: 'address', name: 'address'},
+					{data: 'contact', name: 'contact'},
+                    {
+                        data: 'action',
+                        name: 'action',
+                        orderable: true,
+                        searchable: true
+                    },
+                ]
+            });
+        });
+
+</script>
+	
+@endpush

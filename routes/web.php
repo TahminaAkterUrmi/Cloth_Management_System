@@ -29,10 +29,10 @@ use App\Http\Controllers\Admin\UserController;
 Route::get('/admin/login',[LoginController::class, 'login'])->name('admin.login');
 Route::post('/admin/doLogin',[LoginController::class,'do_login'])->name('admin.dologin');
 Route::get('/admin/logout',[LoginController::class,'logout'])->name('admin.logout');
-// Route::get('/admin/forget-password',[LoginController::class,'password_forget'])->name('admin.password.forget');
-// Route::post('/admin/forget-password/submit', [LoginController::class,'forgetPasswordEmailPost'])->name('admin.forget.password.post');
-// Route::get('/admin/rest-password/{token}',[LoginController::class, 'resetpassword'])->name('admin.reset.password');
-// Route::post('/admin/reset-password',[LoginController::class, 'resetPasswordPost'])->name('admin.rest.password.post');
+ Route::get('/admin/forget-password',[LoginController::class,'password_forget'])->name('admin.password.forget');
+ Route::post('/admin/forget-password/submit', [LoginController::class,'forgetPasswordEmailPost'])->name('admin.forget.password.post');
+ Route::get('/admin/rest-password/{token}',[LoginController::class, 'resetpassword'])->name('admin.reset.password');
+ Route::post('/admin/reset-password',[LoginController::class, 'resetPasswordPost'])->name('admin.rest.password.post');
 
 
 
@@ -65,9 +65,12 @@ Route::get('auth/github/callback',[LoginController::class, 'loginWithgithub']);
  //cloth route end
 
 //for seller
+Route::get('/seller/all-data',[SellerController::class,'allData'])->name('sellers.alldata');
+
 Route::get('/seller/list',[SellerController::class,'sellerlist'])->name('seller.list');
 Route::get('/seller/create',[SellerController::class,'sellercreate'])->name('seller.create');
 Route::post('/seller.store',[SellerController::class,'sellerstore'])->name('seller.store');
+
  
 
 
